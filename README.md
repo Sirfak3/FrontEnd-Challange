@@ -1,2 +1,9 @@
-# FrontEnd-Challanges
-weekly Front End challenges proposed in a discord programming group
+<h1> Front End Challenges </h1>
+
+**Weekly Front End challenges proposed in a discord programming group.**
+<br>
+
+
+*"You can always restart from 'zero'!"*
+
+[The group link here](https://discord.gg/spacelaxy)
