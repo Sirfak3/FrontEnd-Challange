@@ -26,12 +26,14 @@ function canceltask() {
 
         showCustomConfirm((confirm => {
             if (confirm) {
-                containerdash.style.display = 'none'
+                containerdash.style.display = 'none';
                 document.getElementById('add-task').reset();
             } else {
                 return;
             }
         }))
+    } else {
+        containerdash.style.display = 'none'
     }
 }
 
