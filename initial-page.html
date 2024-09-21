@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Re:List</title>
+    <link rel="stylesheet" href="./src/style/style.css">
+    <link rel="stylesheet" href="./src/style/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Re:List</h1>
+            <input type="search" id="searchtask" placeholder="Search" onkeyup="searchtask()">
+            <i class="rightbar-icon fa fa-bars"></i>
+
+            <div class="rightbar-blur"></div>
+
+            <div class="right-bar">
+                <h2 style="padding-bottom: 10px; border-bottom: solid 1px black;">Configurações</h2>
+                
+                <div class="option-on-rightbar">
+                    <h4>Restart site</h4>
+                    <button class="button-rightbar" onclick="clearscreen()">Restart</button>
+                </div>
+
+                <div class="option-on-rightbar">
+                    <h4>Dark mode</h4>
+                    <div class="activer darkmodecheck">
+                        <div class="activerb selectordarkmode"></div>
+                    </div>
+                </div>
+                
+                <div class="option-on-rightbar">
+                   <h4>Edit task</h4>
+                   <button class="button-rightbar" onclick="editviewer()"> Edit </button>
+                </div>
+            </div>
+
+        </header>
+        <div class="list-container">
+            <div class="list" id="list">
+
+                <div class="card-more" id="card-more" title="Add More" onclick="addmore()">
+                    <i class="fa fa-plus"></i>
+                </div>
+            </div> 
+        </div>
+    </div>
+    <div class="dashcontainermain">
+        <div class="container-dash dark-mode">
+            <form class="add-task" id="add-task">
+                <textarea type="text" id="add-title" placeholder="Task Title" maxlength="30"></textarea>
+                <textarea type="text" id="add-text" placeholder="Write here..." maxlength="3000"></textarea>
+            </form>
+            <div class="colors">
+                <div class="select-color" style="background-color: cadetblue;" id="cadetblue"></div>
+                <div class="select-color" style="background-color: lightgreen;" id="lightgreen"></div>
+                <div class="select-color" style="background-color: pink;" id="pink"></div>
+                <div class="select-color" style="background-color: orchid;" id="orchid"></div>
+                <div class="select-color" style="background-color: mediumaquamarine;" id="mediumaquamarine"></div>
+                <div class="select-color" style="background-color: lightblue;" id="lightblue"></div>
+                <div class="select-color" style="background-color: thistle" id="thistle"></div>
+                <div class="select-color" style="background-color: tomato;" id="tomato"></div>
+            </div>
+        </div>
+        <div class="dashbuttons">
+            <button class="addnewtask dashbutton" onclick="addnewtask()">ADD</button>
+            <button class="calceltask dashbutton" onclick="canceltask()">RETURN</button>
+        </div>
+    </div>
+    <div id="viewtask" class="viewtask">
+        <div class="viewtask-container">
+           <h2 class="view-title"></h2>
+           <p class="view-text"></p>
+           <p class="view-date"></p>
+        </div>
+    </div>
+    <div id="custom-confirm" class="confirm-modal">
+        <div class="confirm-content">
+            <p id="confirm-text">Você deseja realmente apagar essa task?</p>
+            <button id="confirm-yes">Sim</button>
+            <button id="confirm-no">Não</button>
+        </div>
+    </div>
+    
+</body>
+<script src="./src/script/main.js"></script>
+<script src="./src/script/dashboard.js"></script>
+</html>

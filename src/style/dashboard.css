@@ -1,0 +1,126 @@
+body {
+    @media (max-width: 700px) {
+        .container-dash, .dashbuttons {
+            scale: 0.8;
+        }
+    }
+}
+
+.dashcontainermain {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background: rgb(0, 0, 0, 0.4);
+    backdrop-filter: blur(3px);
+    z-index: 100;
+}
+
+.container-dash {
+    display: flex;
+    width: 450px;
+    height: 450px;
+    border-radius: 10px;
+    border: solid 1px gray;
+    background-color: aliceblue;
+}
+
+.add-task {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#add-title {
+    width: 350px;
+    height: 55px;
+    margin: 10px 0 10px 0;
+    border-radius: 10px;
+    box-sizing: border-box;
+    background-color: rgb(179, 179, 179);
+    padding: 10px;
+    font-size: 25px;
+    outline: none;
+    resize: none;
+
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+    &::placeholder {
+        color: rgb(37, 60, 161);
+    }
+}
+
+#add-text {
+    width: 350px;
+    height: 350px;
+    margin: auto 0 10px 0;
+    border-radius: 10px;
+    background-color: rgb(179, 179, 179);
+    padding: 10px;
+    font-size: 20px;
+    box-sizing: border-box;
+    outline: none;
+    resize: none;
+   
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+    &::placeholder {
+        color: rgb(37, 60, 161);
+    }
+}
+
+.colors {
+    margin: 10px;
+    margin-left: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.select-color {
+    width: 50px;
+    height: 50px;
+    border-radius: 10px;
+    box-sizing: border-box;
+
+    &:hover {
+        border: inset 4px black;
+    }
+}
+
+.dashbuttons {
+    display: flex;
+    gap: 20px;
+    width: 450px;
+
+}
+
+.dashbutton {
+    width: 100%;
+    height: 40px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif, monospace;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.addnewtask {
+    background-color: rgb(103, 100, 255);
+}
+
+.calceltask {
+    background-color: rgb(255, 100, 100);
+}
+
+.dark-mode {
+    background-color: rgb(27, 27, 27);
+    color: white;
+}
