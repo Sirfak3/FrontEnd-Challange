@@ -187,9 +187,8 @@ body {
     cursor: pointer;
     background-color: rgb(201, 201, 201);
     font-size: 35px;
-    text-align: center;
-    align-content: center;
-    justfy-content: center;
+    align-items: center;
+    justify-content: center;
 
     &:hover {
         color: rgb(0, 207, 0);
