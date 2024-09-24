@@ -133,10 +133,10 @@ body {
 }
 
 .card {
-    display: flexbox;
+    display: flex;
     position: relative;
     flex-direction: column;
-    padding: 0 20px 25px 20px;
+    padding: 0 20px 30px 20px;
     margin: 15px;
     box-sizing: border-box;
     width: 250px;
@@ -279,7 +279,7 @@ body {
  }
  
  .confirm-modal {
-    display: none; /* Inicialmente oculto */
+    display: none;
     position: fixed;
     z-index: 3000;
     top: 0;
