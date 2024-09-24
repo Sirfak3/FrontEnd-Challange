@@ -178,7 +178,7 @@ body {
 }
 
 .card-more {
-    display: flexbox;
+    display: flex;
     margin: 15px;
     box-sizing: border-box;
     width: 250px;
