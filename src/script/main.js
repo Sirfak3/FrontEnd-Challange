@@ -146,14 +146,16 @@ function darmodevirify() {
     if (!actived) {
         document.documentElement.style.setProperty('--tema2', 'rgb(255, 255, 255)');
         document.documentElement.style.setProperty('--tema', 'rgb(255, 255, 255)');
+        JSON.parse(localStorage.getItem('TextAndBorder')) || 'rgb(0, 0, 0)';
     } else {
         document.documentElement.style.setProperty('--tema2', 'rgb(8, 10, 17)');
         document.documentElement.style.setProperty('--tema', 'rgb(9, 9, 27)');
+        JSON.parse(localStorage.getItem('TextAndBorder')) || 'rgb(225, 225, 225)';
     }
 }
 
 function colorcustom() {
-    let TextAndBorderColor = JSON.parse(localStorage.getItem('TextAndBorder')) || 'rgb(0, 0, 0)';
+    let TextAndBorderColor = JSON.parse(localStorage.getItem('TextAndBorder'));
 
     if (TextAndBorderColor) {
 
