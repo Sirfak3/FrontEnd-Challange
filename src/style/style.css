@@ -1,0 +1,242 @@
+:root {
+    --textAndBorder : #fff;
+    --tema : rgb(4, 4, 24);
+    --tema2 : rgb(9, 9, 27);
+}
+
+body {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--textAndBorder);
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: var(--tema);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px var(--textAndBorder);
+    color: var(--textAndBorder);
+}
+
+#searchtask {
+    width: 170px;
+    height: 40px;
+    border-radius: 15px;
+    border: solid 1px var(--textAndBorder);
+    background-color: var(--tema2);
+    color: var(--textAndBorder);
+    box-sizing: border-box;
+    margin: 0 10px 0 auto;
+    padding-left: 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--textAndBorder);
+    font-size: 25px;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 550px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background-color: white;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: gray;
+    }
+
+}
+
+.card {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 0 20px 30px 20px;
+    margin: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    
+    &:hover {
+        box-shadow: 0 0 15px var(--textAndBorder);
+    }
+
+    &:hover .acoes {
+        animation: openacoes 0.3s ease forwards;
+        animation-delay: 0.5s;
+    }
+}
+
+
+.card-title {
+    margin-bottom: 0;
+    font-weight:900;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-text {
+    overflow: hidden;
+    white-space: normal;
+    overflow-wrap: break-word;
+    word-break: break-all;
+}
+
+#date {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    font-size: 12px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.card-more {
+    display: flex;
+    margin: 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: rgb(184, 184, 184);
+    font-size: 35px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+        color: var(--textAndBorder);
+    }
+}
+
+.acoes {
+    display: flex;
+    width: 70px;
+    gap: 15px;
+    padding: 20px;
+    font-size: 25px;
+    position: absolute; 
+    bottom: -10px;
+    left: 0;
+    color: greenyellow;
+    opacity: 0;
+    pointer-events: none;
+
+    >:hover {
+        color: red;
+        transition: 0.3s ease;
+    }
+}
+
+@keyframes openacoes {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+}
+
+.viewtask {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    background: rgb(27, 27, 27, 0.5);
+    backdrop-filter: blur(4px);
+ }
+ 
+ .viewtask-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    height: 450px;
+    padding: 20px;
+    border-radius: 10px;
+
+    word-break: break-all;
+    overflow: hidden;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+        width: 5px;
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--textAndBorder);
+    }
+ }
+ 
+ .view-title {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-bottom: solid 1px black;
+    text-overflow: ellipsis;
+}
+ 
+ .view-date {
+    background-color: azure;
+    padding: 5px;
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+ }
+ 
+ .confirm-modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    align-items: center;
+    justify-content: center;
+}
+
+.confirm-content {
+    background: var(--tema);
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    color: var(--textAndBorder);
+}
+
+.confirm-content button {
+    margin: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: var(--textAndBorder);
+}
