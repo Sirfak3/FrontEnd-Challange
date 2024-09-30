@@ -367,12 +367,6 @@ body {
     background-color: var(--textAndBorder);
 }
 
-
-
-
-
-
-
 @media (min-width: 900px) {
     .config-section {
         width: 650px;
