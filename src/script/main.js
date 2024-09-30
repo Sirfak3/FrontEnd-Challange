@@ -139,15 +139,6 @@ function showCustomConfirm(callback) {
     };
 }
 
-function colorcustom() {
-    let TextAndBorderColor = JSON.parse(localStorage.getItem('TextAndBorder'));
-
-    if (TextAndBorderColor) {
-
-        document.documentElement.style.setProperty('--textAndBorder', TextAndBorderColor.toString());
-    }
-}
-
 // Função para verificar se darkmode esta ativo
 function darmodevirify() {
     let actived = JSON.parse(localStorage.getItem('darkmode')) || false;
@@ -158,6 +149,15 @@ function darmodevirify() {
     } else {
         document.documentElement.style.setProperty('--tema2', 'rgb(8, 10, 17)');
         document.documentElement.style.setProperty('--tema', 'rgb(9, 9, 27)');
+    }
+}
+
+function colorcustom() {
+    let TextAndBorderColor = JSON.parse(localStorage.getItem('TextAndBorder')) || 'rgb(0, 0, 0)';
+
+    if (TextAndBorderColor) {
+
+        document.documentElement.style.setProperty('--textAndBorder', TextAndBorderColor.toString());
     }
 }
 
