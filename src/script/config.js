@@ -184,7 +184,6 @@ function modeOfView() {
 
 
 
-
 window.addEventListener('DOMContentLoaded', () => {
     darkmode();
     OnOff();
