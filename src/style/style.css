@@ -1,5 +1,5 @@
 :root {
-    --textAndBorder : #fff;
+    --textAndBorder : red;
     --tema : rgb(4, 4, 24);
     --tema2 : rgb(9, 9, 27);
 }
@@ -239,4 +239,9 @@ a {
     padding: 10px 20px;
     cursor: pointer;
     background-color: var(--textAndBorder);
+}
+
+.allcard {
+    width: 250px;
+    height: 250px;
 }
