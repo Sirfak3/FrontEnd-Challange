@@ -1,3 +1,9 @@
+:root {
+    --tema : rgb(4, 4, 24);
+    --tema2 : rgb(9, 9, 27);
+    --textAndBorder : rgb(255, 255, 255);
+}
+
 body {
     @media (max-width: 700px) {
         .container-dash, .dashbuttons {
@@ -20,12 +26,13 @@ body {
 }
 
 .container-dash {
+    position: relative;
     display: flex;
     width: 450px;
     height: 450px;
     border-radius: 10px;
-    border: solid 1px gray;
-    background-color: aliceblue;
+    border: solid 1px var(--textAndBorder);
+    background-color: var(--tema);
 }
 
 .add-task {
@@ -40,6 +47,7 @@ body {
     height: 55px;
     margin: 10px 0 10px 0;
     border-radius: 10px;
+    border: solid 1px var(--textAndBorder);
     box-sizing: border-box;
     background-color: rgb(179, 179, 179);
     padding: 10px;
@@ -60,6 +68,7 @@ body {
     height: 350px;
     margin: auto 0 10px 0;
     border-radius: 10px;
+    border: solid 1px var(--textAndBorder);
     background-color: rgb(179, 179, 179);
     padding: 10px;
     font-size: 20px;
@@ -87,11 +96,25 @@ body {
     width: 50px;
     height: 50px;
     border-radius: 10px;
+    border: solid 2px var(--textAndBorder);
     box-sizing: border-box;
 
     &:hover {
         border: inset 4px black;
     }
+}
+
+.select-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mira-picker {
+    color: var(--textAndBorder);
+    font-size: 25px;
+    position: absolute;
+    pointer-events: none;
 }
 
 .dashbuttons {
@@ -114,13 +137,70 @@ body {
 
 .addnewtask {
     background-color: rgb(103, 100, 255);
+    color: var(--textAndBorder);
+    text-shadow: 2px 2px white, -2px -2px white, 2px -2px white, -2px 2px white;
 }
 
 .calceltask {
     background-color: rgb(255, 100, 100);
+    color: var(--textAndBorder);
+    text-shadow: 2px 2px white, -2px -2px white, 2px -2px white, -2px 2px white;
 }
 
-.dark-mode {
-    background-color: rgb(27, 27, 27);
+.div-fonts {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    border-radius: 10px;
+    border: solid 1px var(--textAndBorder);
+    top: -35px;
+    overflow: hidden;
+    z-index: 2000;
+    width: 140px;
+    height: 25px;
+    background: gray;
+    backdrop-filter: blur(3px);
     color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+
+    & > h3 {
+        text-align: center;
+        margin: 0;
+        margin-bottom: 5px;
+
+        &:hover {
+            color: var(--textAndBorder);
+        }
+    }
+
+    &::-webkit-scrollbar {
+        width: 5px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: var(--textAndBorder);
+    }
+    
+    & > ul {
+        padding-top: 20px;
+        text-align: center;
+        width: 100%;
+        overflow: hidden;
+        overflow-y: scroll;
+        margin: 0;
+        list-style: none;
+
+        & > li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            width: 100px;
+            background-color: var(--tema);
+            color: var(--textAndBorder);
+
+            &:hover {
+                color: aqua;
+            }
+        }
+    }
 }

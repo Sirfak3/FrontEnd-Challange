@@ -1,14 +1,19 @@
+:root {
+    --textAndBorder : #fff;
+    --tema : rgb(4, 4, 24);
+    --tema2 : rgb(9, 9, 27);
+}
+
 body {
     position: relative;
     display: flex;
     width: 100%;
     height: 100vh;
-    background-color: antiquewhite;
     overflow: hidden;
+    background-color: var(--textAndBorder);
     padding: 0;
     margin: 0;
 }
-
 
 .container {
     display: flex;
@@ -17,101 +22,32 @@ body {
     padding: 20px;
     margin: 10px;
     border-radius: 10px;
-    background-color: white;
+    background-color: var(--tema);
 }
 
 .header {
     display: flex;
     align-items: center;
-    border-bottom: solid 1px gray;
+    border-bottom: solid 1px var(--textAndBorder);
+    color: var(--textAndBorder);
 }
 
 #searchtask {
     width: 170px;
     height: 40px;
     border-radius: 15px;
+    border: solid 1px var(--textAndBorder);
+    background-color: var(--tema2);
+    color: var(--textAndBorder);
     box-sizing: border-box;
     margin: 0 10px 0 auto;
     padding-left: 20px;
 }
 
-.rightbar-icon {
+a {
+    text-decoration: none;
+    color: var(--textAndBorder);
     font-size: 25px;
-    margin-left: 10px;
-
-    &:hover {
-        color: aqua;
-        transition: 0.3s ease;
-    }
-}
-
-.right-bar {
-    display: none;
-    position: absolute;
-    flex-direction: column;
-    width: 255px;
-    height: 100vh;
-    z-index: 500;
-    top: 0;
-    right: 0;
-    background-color: aliceblue;
-    color: black;
-    box-sizing: border-box;
-    padding: 0 20px;
-}
-
-.rightbar-blur {
-    display: none;
-    position: absolute;
-    z-index: 500;
-    background: rgb(0, 0, 0, 0.5);
-    backdrop-filter: blur(4px);
-    width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
-}
-
-.option-on-rightbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    border-bottom: solid 1px black;
-}
-
-.button-rightbar {
-    width: 60px;
-    height: 25px;
-    border-radius: 7px;
-    background-color: cornflowerblue;
-    cursor: pointer;
-
-    &:hover {
-        background-color: aquamarine;
-    }
-}
-
-.activer {
-    display: flex;
-    align-items: center;
-    width: 40px;
-    height: 20px;
-    border-radius: 10px;
-    box-shadow: inset 0 0 5px black;
-    cursor: pointer;
-
-    &:hover .activerb{
-        background-color: rgb(94, 204, 167);
-    }
-}
-
-.activerb {
-    background-color: cornflowerblue;
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    margin: 4px;
 }
 
 .list {
@@ -128,8 +64,9 @@ body {
         background-color: white;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: cornflowerblue;
+        background-color: gray;
     }
+
 }
 
 .card {
@@ -139,14 +76,12 @@ body {
     padding: 0 20px 30px 20px;
     margin: 15px;
     box-sizing: border-box;
-    width: 250px;
-    height: 250px;
     border-radius: 10px;
     cursor: pointer;
     overflow: hidden;
     
     &:hover {
-        box-shadow: 0 0 5px aqua;
+        box-shadow: 0 0 15px var(--textAndBorder);
     }
 
     &:hover .acoes {
@@ -155,9 +90,11 @@ body {
     }
 }
 
+
 .card-title {
     margin-bottom: 0;
     font-weight:900;
+    overflow: hidden;
     text-overflow: ellipsis;
 }
 
@@ -181,17 +118,15 @@ body {
     display: flex;
     margin: 15px;
     box-sizing: border-box;
-    width: 250px;
-    height: 250px;
     border-radius: 10px;
     cursor: pointer;
-    background-color: rgb(201, 201, 201);
+    background-color: rgb(184, 184, 184);
     font-size: 35px;
     align-items: center;
     justify-content: center;
 
     &:hover {
-        color: rgb(0, 207, 0);
+        color: var(--textAndBorder);
     }
 }
 
@@ -230,7 +165,6 @@ body {
     display: none;
     flex-direction: column;
     position: absolute;
-    z-index: 1000;
     top: 0;
     left: 0;
     width: 100%;
@@ -248,6 +182,7 @@ body {
     width: 350px;
     height: 450px;
     padding: 20px;
+    border-radius: 10px;
 
     word-break: break-all;
     overflow: hidden;
@@ -255,10 +190,10 @@ body {
 
     &::-webkit-scrollbar {
         width: 5px;
-        background-color: white;
+        background-color: transparent;
     }
     &::-webkit-scrollbar-thumb {
-        background-color: cornflowerblue;
+        background-color: var(--textAndBorder);
     }
  }
  
@@ -268,7 +203,7 @@ body {
     width: 100%;
     border-bottom: solid 1px black;
     text-overflow: ellipsis;
- }
+}
  
  .view-date {
     background-color: azure;
@@ -292,19 +227,16 @@ body {
 }
 
 .confirm-content {
-    background: white;
+    background: var(--tema);
     padding: 20px;
     border-radius: 8px;
     text-align: center;
+    color: var(--textAndBorder);
 }
 
 .confirm-content button {
     margin: 5px;
     padding: 10px 20px;
     cursor: pointer;
-}
-
-.dark-mode {
-    background-color: rgb(27, 27, 27);
-    color: white;
+    background-color: var(--textAndBorder);
 }

@@ -1,20 +1,64 @@
 let task = JSON.parse(localStorage.getItem('tasks')) || [];
 let colorValue = 'cadetblue';
-let now = new Date
+let now = new Date;
 let dateValue;
+let fontValue = 'arial';
 let editingIndex = null;
 
-document.querySelectorAll('.select-color').forEach(item => {
-    item.addEventListener('click', function() {
-        colorValue = this.id.toString();
+function alteraCor() {
+    const colors = document.querySelectorAll('.select-color');
+    const colorPicker = document.querySelector('.color-picker');
+
+    colors.forEach(color => {
+        color.addEventListener('click', function() {
+            colorValue = this.id.toString();
+            document.getElementById('add-title').style.backgroundColor = colorValue;
+            document.getElementById('add-text').style.backgroundColor = colorValue;
+        });
+    })
+
+    colorPicker.addEventListener('input', function() {
+        colorValue = this.value;
         document.getElementById('add-title').style.backgroundColor = colorValue;
         document.getElementById('add-text').style.backgroundColor = colorValue;
-    })
-})
+    });
 
-dateValue = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} At ${now.getHours()}: ${now.getMinutes()}`;
+}
+alteraCor()
+
+function fonts() {
+    const container = document.querySelector('.div-fonts');
+    const fonts = document.querySelectorAll('.option-font');
+
+    container.addEventListener('click', () => {
+        container.style.height = '300px';
+    })
+
+    fonts.forEach(font => {
+        font.style.fontFamily = font.textContent
+        font.addEventListener('click', (event) => {
+            event.stopPropagation()
+            container.style.height = '25px';
+
+            fontValue = font.textContent;
+            document.getElementById('add-title').style.fontFamily = fontValue;
+            document.getElementById('add-text').style.fontFamily = fontValue;
+        })
+    })
+
+    document.addEventListener('click', function(event) {
+        if (!container.contains(event.target)) {
+            container.style.height = '25px';
+        }
+    })
+}
+fonts()
+
 
 function addnewtask() {
+
+    dateValue = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} At ${now.getHours()}: ${now.getMinutes()}`;
+
     const title = document.getElementById('add-title').value;
     const text = document.getElementById('add-text').value;
     const containerdash = document.querySelector('.dashcontainermain');
@@ -24,7 +68,8 @@ function addnewtask() {
             titulo: title,
             texto: text, 
             color: colorValue,
-            date: dateValue
+            date: dateValue,
+            fonte: fontValue
         };
 
         if (editingIndex !== null) {
@@ -63,3 +108,5 @@ function editthis(index, event) {
 
     editingIndex = index;
 }
+
+

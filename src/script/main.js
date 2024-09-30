@@ -1,13 +1,3 @@
-function clearscreen() {
-    document.getElementById('confirm-text').innerHTML = 'Você perderá todas as tasks e preferências do site. Tem certeza?'
-    showCustomConfirm((confirm) => {
-        if (confirm) {
-            localStorage.clear();
-            location.reload();
-        }
-    })
-}
-
 // Botão de adicionar nova task
 function addmore() {
     const containerdash = document.querySelector('.dashcontainermain');
@@ -44,7 +34,7 @@ function rendertasks() {
 
     tasks.forEach((task, index) => {
         const taskcard = `
-        <div class="card" data-index="${index}" style="background-color: ${task.color}"> 
+        <div class="card allcard" data-index="${index}" style="background-color: ${task.color}; font-family: ${task.fonte}"> 
             <h3 class="card-title" id="card-title">${task.titulo}</h3>
             <p class="card-text">${task.texto}</p>
             <div id="date">
@@ -91,65 +81,7 @@ function delthistask(index, event) {
     });
 }
 
-function darkmode() {
-    let active = JSON.parse(localStorage.getItem('darkmode')) || false;
-
-    const darkcheck = document.querySelector('.darkmodecheck');
-    const selector = document.querySelector('.selectordarkmode');
-    const container = document.querySelector('.container');
-    const dashboard = document.querySelector('.container-dash');
-    const rightbar = document.querySelector('.right-bar');
-
-    const enableDarkMode = () => {
-        selector.style.translate = '100%';
-        selector.style.transition = '0.3s ease';
-        container.classList.add('dark-mode');
-        dashboard.classList.add('dark-mode');
-        rightbar.classList.add('dark-mode');
-    };
-    const disableDarkMode = () => {
-        selector.style.translate = '0%';
-        selector.style.transition = '0.3s ease';
-        container.classList.remove('dark-mode');
-        dashboard.classList.remove('dark-mode');
-        rightbar.classList.remove('dark-mode');
-    };
-
-    if (active) {
-        enableDarkMode();
-    } else {
-        disableDarkMode();
-    }
-
-    darkcheck.addEventListener('click', () => {
-        active = !active;
-        localStorage.setItem('darkmode', JSON.stringify(active));
-
-        if (active) {
-            enableDarkMode();
-        } else {
-            disableDarkMode();
-        }
-    });
-}
-
-function openRightBar() {
-    const openicon = document.querySelector('.rightbar-icon');
-    const rightbar = document.querySelector('.right-bar');
-    const closebar = document.querySelector('.rightbar-blur');
-
-    openicon.addEventListener('click', () => {
-        rightbar.style.display = 'flex';
-        closebar.style.display = 'block';
-    })
-    closebar.addEventListener('click', () => {
-        rightbar.style.display = 'none';
-        closebar.style.display = 'none';
-    })
-
-}
-openRightBar();
-
+// função de visualização da task
 function viewtask() {
     const cards = document.querySelectorAll('.card');
     const container = document.querySelector('.viewtask');
@@ -158,9 +90,12 @@ function viewtask() {
     const textElement = document.querySelector('.view-text');
     const dateElement = document.querySelector('.view-date');
     let viewActived = false;
+    
+    cards.forEach(task => {
+        task.addEventListener('click', (event) => {
 
-    cards.forEach((task) => {
-        task.addEventListener('click', () => {
+            event.preventDefault();
+            event.stopPropagation();
 
             if (!viewActived) {
                 const title = task.querySelector('.card-title').textContent;
@@ -180,17 +115,11 @@ function viewtask() {
         });
     });
 
-    container.addEventListener('click', () => {
+    container.addEventListener('click', function () {
         container.style.display = 'none';
         viewActived = false;
     });
 }
-
-document.addEventListener('DOMContentLoaded', () => {
-    rendertasks();
-    darkmode();
-    viewtask();
-});
 
 function showCustomConfirm(callback) {
     const confirmModal = document.getElementById('custom-confirm');
@@ -210,3 +139,56 @@ function showCustomConfirm(callback) {
     };
 }
 
+function colorcustom() {
+    let TextAndBorderColor = JSON.parse(localStorage.getItem('TextAndBorder'));
+
+    if (TextAndBorderColor) {
+
+        document.documentElement.style.setProperty('--textAndBorder', TextAndBorderColor.toString());
+    }
+}
+
+// Função para verificar se darkmode esta ativo
+function darmodevirify() {
+    let actived = JSON.parse(localStorage.getItem('darkmode')) || false;
+
+    if (!actived) {
+        document.documentElement.style.setProperty('--tema2', 'rgb(255, 255, 255)');
+        document.documentElement.style.setProperty('--tema', 'rgb(255, 255, 255)');
+    } else {
+        document.documentElement.style.setProperty('--tema2', 'rgb(8, 10, 17)');
+        document.documentElement.style.setProperty('--tema', 'rgb(9, 9, 27)');
+    }
+}
+
+function cardsize() {
+    const size = JSON.parse(localStorage.getItem('sizeOfCard'));
+    const allcard = document.querySelectorAll('.allcard');
+
+    allcard.forEach(card => {
+        card.style.setProperty('min-width', size.largura + 'px');
+        card.style.setProperty('min-height', size.altura + 'px');
+        card.style.setProperty('max-width', size.largura + 'px');
+        card.style.setProperty('max-height', size.altura + 'px');
+
+        const paragraph = card.querySelector('p');
+        const date = document.querySelectorAll('#date')
+        
+        if (size.altura < 150 && paragraph) {
+            paragraph.style.display = 'none';
+            
+            date.forEach(dat => {
+                dat.style.display = 'none'
+            })
+        }
+    })
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    rendertasks();
+    viewtask();
+    colorcustom();
+    darmodevirify();
+    cardsize();
+});
