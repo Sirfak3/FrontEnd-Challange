@@ -146,11 +146,9 @@ function darmodevirify() {
     if (!actived) {
         document.documentElement.style.setProperty('--tema2', 'rgb(255, 255, 255)');
         document.documentElement.style.setProperty('--tema', 'rgb(255, 255, 255)');
-        document.documentElement.style.setProperty('--textAndBorder', localStorage.getItem('TextAndBorder') || 'rgb(0, 0, 0)');
     } else {
         document.documentElement.style.setProperty('--tema2', 'rgb(8, 10, 17)');
         document.documentElement.style.setProperty('--tema', 'rgb(9, 9, 27)');
-        document.documentElement.style.setProperty('--textAndBorder', localStorage.getItem('TextAndBorder') || 'rgb(225, 225, 225);
     }
 }
 
