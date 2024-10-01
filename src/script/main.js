@@ -101,13 +101,14 @@ function viewtask() {
                 const title = task.querySelector('.card-title').textContent;
                 const text = task.querySelector('.card-text').textContent;
                 const date = task.querySelector('#date p').textContent;
+                const color = window.getComputedStyle(task).backgroundColor;
+                const fonte = window.getComputedStyle(task).fontFamily;
 
                 titleElement.textContent = title;
                 textElement.textContent = text;
                 dateElement.textContent = date;
-
-                const color = window.getComputedStyle(task).backgroundColor;
                 paper.style.backgroundColor = color;
+                paper.style.fontFamily = fonte;
 
                 container.style.display = 'flex';
                 viewActived = true;
