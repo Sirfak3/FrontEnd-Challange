@@ -22,7 +22,6 @@ function alteraCor() {
         document.getElementById('add-title').style.backgroundColor = colorValue;
         document.getElementById('add-text').style.backgroundColor = colorValue;
     });
-
 }
 alteraCor()
 
@@ -36,6 +35,7 @@ function fonts() {
 
     fonts.forEach(font => {
         font.style.fontFamily = font.textContent
+        
         font.addEventListener('click', (event) => {
             event.stopPropagation()
             container.style.height = '25px';
@@ -54,9 +54,7 @@ function fonts() {
 }
 fonts()
 
-
 function addnewtask() {
-
     dateValue = `${now.getDate()}/${now.getMonth() + 1}/${now.getFullYear()} At ${now.getHours()}: ${now.getMinutes()}`;
 
     const title = document.getElementById('add-title').value;
@@ -84,7 +82,9 @@ function addnewtask() {
 
         document.getElementById('add-task').reset();
         containerdash.style.display = 'none';
+
         location.reload();
+
     } else {
         alert('Escreva em todos os campos');
     }
@@ -97,19 +97,16 @@ function editthis(index, event) {
 
     document.querySelector('.dashcontainermain').style.display = 'flex';
     document.querySelector('.addnewtask').textContent = 'Atualizar';
-
+    
+    document.getElementById('add-text').style.fontFamily = taskToEdit.fonte;
+    document.getElementById('add-title').style.fontFamily = taskToEdit.fonte
     document.getElementById('add-title').value = taskToEdit.titulo;
     document.getElementById('add-text').value = taskToEdit.texto;
-    document.getElementById('add-title').style.fontFamily = taskToEdit.fonte;
-    document.getElementById('add-text').style.fontFamily = taskToEdit.fonte;
-
     document.getElementById('add-title').style.backgroundColor = taskToEdit.color;
     document.getElementById('add-text').style.backgroundColor = taskToEdit.color;
-    colorValue = taskToEdit.color;
-    fontValue = taskToRdit.fonte;
     
+    colorValue = taskToEdit.color;
+    fontValue = taskToEdit.fonte;
 
     editingIndex = index;
 }
-
-
