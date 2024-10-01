@@ -150,15 +150,18 @@ function darmodevirify() {
         document.documentElement.style.setProperty('--tema2', 'rgb(8, 10, 17)');
         document.documentElement.style.setProperty('--tema', 'rgb(9, 9, 27)');
     }
-}
 
-function colorcustom() {
-    let TextAndBorderColor = JSON.parse(localStorage.getItem('TextAndBorder'));
-
-    if (TextAndBorderColor) {
-
-        document.documentElement.style.setProperty('--textAndBorder', TextAndBorderColor.toString());
+    function colorcustom() {
+        let TextAndBorderColor = JSON.parse(localStorage.getItem('TextAndBorder'));
+        if (!TextAndBorderColor && actived) {
+            document.documentElement.style.setProperty('--textAndBorder', 'rgb(225, 225, 225)');
+        } else if (!TextAndBorderColor && !actived) {
+            document.documentElement.style.setProperty('--textAndBorder', 'rgb(0, 0, 0)');
+        } else if (TextAndBorderColor) {
+            document.documentElement.style.setProperty('--textAndBorder', TextAndBorderColor.toString());
+        }
     }
+    colorcustom();
 }
 
 function cardsize() {
@@ -188,7 +191,6 @@ function cardsize() {
 document.addEventListener('DOMContentLoaded', () => {
     rendertasks();
     viewtask();
-    colorcustom();
     darmodevirify();
     cardsize();
 });
