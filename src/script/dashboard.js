@@ -100,10 +100,13 @@ function editthis(index, event) {
 
     document.getElementById('add-title').value = taskToEdit.titulo;
     document.getElementById('add-text').value = taskToEdit.texto;
+    document.getElementById('add-title').style.fontFamily = taskToEdit.fonte;
+    document.getElementById('add-text').style.fontFamily = taskToEdit.fonte;
 
     document.getElementById('add-title').style.backgroundColor = taskToEdit.color;
     document.getElementById('add-text').style.backgroundColor = taskToEdit.color;
     colorValue = taskToEdit.color;
+    fontValue = taskToRdit.fonte;
     
 
     editingIndex = index;
